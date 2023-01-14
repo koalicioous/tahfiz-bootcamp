@@ -12,14 +12,16 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import Home from "../screens/Home";
-import TabTwoScreen from "../screens/TabTwoScreen";
+import Memorizing from "../screens/Memorizing";
+import Mushaf from "../screens/Mushaf";
+import Profile from "../screens/Profile";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -94,7 +96,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Memorizing"
-        component={TabTwoScreen}
+        component={Memorizing}
         options={{
           title: "Memorizing",
           tabBarIcon: ({ color }) => <TabBarIcon name="award" color={color} />,
@@ -102,7 +104,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Mushaf"
-        component={TabTwoScreen}
+        component={Mushaf}
         options={{
           title: "Mushaf",
           tabBarIcon: ({ color }) => (
@@ -112,7 +114,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Profile"
-        component={TabTwoScreen}
+        component={Profile}
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
