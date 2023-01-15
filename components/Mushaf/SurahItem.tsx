@@ -18,6 +18,8 @@ const SurahItem = ({ surah }: { surah: Surah }) => {
           style={{
             marginRight: 8,
             position: "relative",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
           <View
