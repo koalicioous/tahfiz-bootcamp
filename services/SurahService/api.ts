@@ -1,8 +1,8 @@
 import request from "../../utils/request";
 
 const SurahService = {
-  getSurahList: () => {
-    return request.get("/surah");
+  getSurahList: async () => {
+    return await request.get("/surah").then((res) => JSON.parse(res.data));
   },
 };
 

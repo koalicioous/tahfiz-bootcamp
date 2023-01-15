@@ -1,21 +1,12 @@
 import { RootTabScreenProps } from "../types";
 import { View, Text } from "../components/Themed";
 import { StyleSheet } from "react-native";
-import useGetSurahList from "../hooks/queries/useGetSurahList";
+import SurahList from "../components/Mushaf/SurahList";
 
 export default function Mushaf({ navigation }: RootTabScreenProps<"Mushaf">) {
-  const { surahList, isLoading: loadingSurah } = useGetSurahList();
-  console.log(surahList);
-
-  if (loadingSurah)
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
   return (
     <View style={styles.container}>
-      <Text>This is Mushaf</Text>
+      <SurahList />
     </View>
   );
 }
@@ -25,5 +16,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    padding: 8,
   },
 });
