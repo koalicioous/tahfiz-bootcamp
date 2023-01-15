@@ -5,14 +5,14 @@ export type Surah = {
   name: {
     short: string;
     long: string;
-  };
-  transliteration: {
-    en: string;
-    id: string;
-  };
-  translation: {
-    en: string;
-    id: string;
+    transliteration: {
+      en: string;
+      id: string;
+    };
+    translation: {
+      en: string;
+      id: string;
+    };
   };
   revelation: {
     arab: string;
