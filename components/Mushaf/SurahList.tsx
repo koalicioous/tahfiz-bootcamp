@@ -1,4 +1,4 @@
-import { View, TextInput } from "../Themed";
+import { View, TextInput, Text } from "../Themed";
 import useGetSurahList from "../../hooks/queries/useGetSurahList";
 import { FlatList, StyleSheet } from "react-native";
 import SurahItem from "./SurahItem";
@@ -32,6 +32,13 @@ const SurahList = () => {
     });
   }, [surahList, query]);
 
+  if (loadingSurah)
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+
   return (
     <View style={style.container}>
       <TextInput
@@ -40,12 +47,13 @@ const SurahList = () => {
           padding: 8,
           paddingVertical: 12,
           borderRadius: 8,
-          borderColor: "#64748b",
           marginBottom: 4,
         }}
         placeholder="Cari surat"
         value={query}
         onChangeText={(q) => setQuery(q)}
+        lightBorder="#e2e8f0"
+        darkBorder="#334155"
       />
       <FlatList
         data={surahData}

@@ -29,6 +29,10 @@ export function useThemeColor(
 type ThemeProps = {
   lightColor?: string;
   darkColor?: string;
+  lightBg?: string;
+  darkBg?: string;
+  lightBorder?: string;
+  darkBorder?: string;
 };
 
 export type TextProps = ThemeProps & DefaultText["props"];
@@ -53,16 +57,32 @@ export function View(props: ViewProps) {
 }
 
 export function TextInput(props: TextInputProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
+  const {
+    style,
+    lightColor,
+    darkColor,
+    lightBg,
+    darkBg,
+    lightBorder,
+    darkBorder,
+    ...otherProps
+  } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
   const backgroundColor = useThemeColor(
-    { light: lightColor, dark: darkColor },
+    { light: lightBg, dark: darkBg },
     "background"
+  );
+  const border = useThemeColor(
+    {
+      light: lightBorder,
+      dark: darkBorder,
+    },
+    "border"
   );
 
   return (
     <DefaultTextInput
-      style={[{ backgroundColor, color }, style]}
+      style={[{ backgroundColor, color, borderColor: border }, style]}
       {...otherProps}
     />
   );
