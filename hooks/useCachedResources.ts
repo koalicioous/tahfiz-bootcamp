@@ -17,6 +17,7 @@ export default function useCachedResources() {
           ...FontAwesome.font,
           "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
           "uthman-taha-naskh": require("../assets/fonts/KFGQPCUthmanTahaNaskhBold.ttf"),
+          lpmq: require("../assets/fonts/lpmq.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
