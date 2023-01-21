@@ -3,6 +3,7 @@ import { Text } from "../Themed";
 import { ArabicText } from "../ArabicText";
 import { Surah } from "./types";
 import SurahNumberFrame from "../../assets/icons/SurahNumberFrame";
+import { LPMQText } from "../LPMQText";
 
 const SurahItem = ({ surah }: { surah: Surah }) => {
   return (
@@ -77,6 +78,13 @@ const SurahItem = ({ surah }: { surah: Surah }) => {
       >
         {surah.name.short}
       </ArabicText>
+      {/* <LPMQText
+        style={styles.arabicTitle}
+        lightColor="#1d4ed8"
+        darkColor="#eff6ff"
+      >
+        {surah.name.short}
+      </LPMQText> */}
     </TouchableOpacity>
   );
 };
