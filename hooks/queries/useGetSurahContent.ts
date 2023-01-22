@@ -6,7 +6,7 @@ type useGetSurahContentProps = {
   surahNumber: number;
 };
 
-export type verse = {
+export type Verse = {
   number: {
     inQuran: number;
     inSurah: number;
@@ -68,8 +68,8 @@ export type SurahContentData = {
   tafsir: {
     id: string;
   };
-  preBismillah: string | null;
-  verses: verse[];
+  preBismillah: Verse | null;
+  verses: Verse[];
 };
 
 const useGetSurahContent = ({ surahNumber }: useGetSurahContentProps) => {

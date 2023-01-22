@@ -1,13 +1,23 @@
 import { StyleSheet } from "react-native";
 import SurahNumberFrame from "../../assets/icons/SurahNumberFrame";
-import { verse } from "../../hooks/queries/useGetSurahContent";
+import { Verse } from "../../hooks/queries/useGetSurahContent";
 import { ArabicText } from "../ArabicText";
 import { LPMQText } from "../LPMQText";
 import { View, Text } from "../Themed";
 
-const VerseItem = ({ verse }: { verse: verse }) => {
+const VerseItem = ({
+  verse,
+}: {
+  verse: Verse & { preBismillah?: boolean };
+}) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+      {...(verse.preBismillah && {
+        lightColor: "#f4f4f4",
+        darkColor: "#1f2937",
+      })}
+    >
       <View
         style={{
           display: "flex",
@@ -42,26 +52,43 @@ const VerseItem = ({ verse }: { verse: verse }) => {
           </View>
           <SurahNumberFrame lightColor="#cbd5e1" darkColor="#334155" />
         </View> */}
-        <View style={{ flexGrow: 1 }}>
-          <ArabicText style={styles.arabText}>{verse.text.arab}</ArabicText>
+        <View
+          style={{ flexGrow: 1 }}
+          {...(verse.preBismillah && {
+            lightColor: "#f4f4f4",
+            darkColor: "#1f2937",
+          })}
+        >
+          <ArabicText
+            style={{
+              ...styles.arabText,
+              ...(verse.preBismillah && {
+                textAlign: "center",
+              }),
+            }}
+          >
+            {verse.text.arab}
+          </ArabicText>
         </View>
       </View>
-      <View
-        style={{
-          marginTop: 4,
-        }}
-      >
-        <Text style={styles.translationText}>
-          {`${verse.number.inSurah}. ` + verse.translation.id}
-        </Text>
-      </View>
+      {!verse.preBismillah && (
+        <View
+          style={{
+            marginTop: 4,
+          }}
+        >
+          <Text style={styles.translationText}>
+            {`${verse.number.inSurah}. ` + verse.translation.id}
+          </Text>
+        </View>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 12,
     paddingVertical: 12,
   },
   arabText: {

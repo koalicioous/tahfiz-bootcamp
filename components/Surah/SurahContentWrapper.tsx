@@ -9,15 +9,31 @@ const SurahContentWrapper = ({
   content: SurahContentData | undefined;
 }) => {
   return (
-    <SafeAreaView>
-      <FlatList
-        data={content?.verses}
-        renderItem={({ item }) => <VerseItem verse={item} />}
-        ItemSeparatorComponent={() => (
-          <View style={{ height: 1 }} lightColor="#fff0" />
-        )}
-      />
-    </SafeAreaView>
+    <View>
+      <SafeAreaView>
+        <FlatList
+          data={
+            content?.preBismillah
+              ? [
+                  {
+                    ...content.preBismillah,
+                    preBismillah: true,
+                  },
+                  ...content.verses,
+                ]
+              : content?.verses
+          }
+          renderItem={({ item }) => <VerseItem verse={item} />}
+          ItemSeparatorComponent={() => (
+            <View
+              style={{ height: 1 }}
+              lightColor="#f4f4f4"
+              darkColor="#374151"
+            />
+          )}
+        />
+      </SafeAreaView>
+    </View>
   );
 };
 
