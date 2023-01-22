@@ -6,7 +6,7 @@ type useGetSurahContentProps = {
   surahNumber: number;
 };
 
-type verse = {
+export type verse = {
   number: {
     inQuran: number;
     inSurah: number;
@@ -44,7 +44,7 @@ type verse = {
   };
 };
 
-type SurahContentData = {
+export type SurahContentData = {
   number: number;
   sequence: number;
   numberOfVerses: number;

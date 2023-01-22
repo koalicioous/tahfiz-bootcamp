@@ -88,7 +88,7 @@ const SurahItem = ({
       </View>
       <ArabicText
         style={styles.arabicTitle}
-        lightColor="#1d4ed8"
+        // lightColor="#1d4ed8"
         darkColor="#eff6ff"
       >
         {surah.name.short}

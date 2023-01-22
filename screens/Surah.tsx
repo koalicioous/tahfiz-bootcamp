@@ -2,6 +2,8 @@ import { View, Text } from "../components/Themed";
 import { useEffect } from "react";
 import useGetSurahContent from "../hooks/queries/useGetSurahContent";
 import { RootStackScreenProps } from "../types";
+import { StyleSheet } from "react-native";
+import SurahContentWrapper from "../components/Surah/SurahContentWrapper";
 
 export default function Surah({
   navigation,
@@ -25,8 +27,15 @@ export default function Surah({
   }
 
   return (
-    <View>
-      <Text>Surah</Text>
+    <View style={styles.container}>
+      <SurahContentWrapper content={surahContent} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff0",
+  },
+});
