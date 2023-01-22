@@ -4,10 +4,23 @@ import { ArabicText } from "../ArabicText";
 import { Surah } from "./types";
 import SurahNumberFrame from "../../assets/icons/SurahNumberFrame";
 import { LPMQText } from "../LPMQText";
+import { RootStackScreenProps, RootTabScreenProps } from "../../types";
 
-const SurahItem = ({ surah }: { surah: Surah }) => {
+const SurahItem = ({
+  surah,
+  screenProps,
+}: {
+  surah: Surah;
+  screenProps: RootTabScreenProps<"Mushaf">;
+}) => {
+  const { navigation } = screenProps;
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        navigation.navigate("Surah");
+      }}
+    >
       <View
         style={{
           display: "flex",

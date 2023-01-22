@@ -18,6 +18,7 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
+import SurahScreen from "../screens/Surah";
 import Home from "../screens/Home";
 import Memorizing from "../screens/Memorizing";
 import Mushaf from "../screens/Mushaf";
@@ -62,6 +63,11 @@ function RootNavigator() {
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
+      />
+      <Stack.Screen
+        name="Surah"
+        component={SurahScreen}
+        options={{ title: "Surah" }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />

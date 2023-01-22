@@ -3,10 +3,13 @@ import { View, Text } from "../components/Themed";
 import { StyleSheet } from "react-native";
 import SurahList from "../components/Mushaf/SurahList";
 
-export default function Mushaf({ navigation }: RootTabScreenProps<"Mushaf">) {
+export default function Mushaf({
+  navigation,
+  route,
+}: RootTabScreenProps<"Mushaf">) {
   return (
     <View style={styles.container}>
-      <SurahList />
+      <SurahList navigation={navigation} route={route} />
     </View>
   );
 }

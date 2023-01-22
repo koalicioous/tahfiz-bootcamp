@@ -4,14 +4,24 @@ import { FlatList, StyleSheet } from "react-native";
 import SurahItem from "./SurahItem";
 import { useCallback, useMemo, useState } from "react";
 import { Surah } from "./types";
+import { ScreenProps } from "react-native-screens";
+import { RootStackScreenProps, RootTabScreenProps } from "../../types";
 
-const SurahList = () => {
+const SurahList = ({ navigation, route }: RootTabScreenProps<"Mushaf">) => {
   const [query, setQuery] = useState("");
   const { surahList, isLoading: loadingSurah } = useGetSurahList();
 
   const renderSurahItem = useCallback(
     ({ item }: { item: Surah }) => {
-      return <SurahItem surah={item} />;
+      return (
+        <SurahItem
+          surah={item}
+          screenProps={{
+            navigation,
+            route,
+          }}
+        />
+      );
     },
     [surahList]
   );
