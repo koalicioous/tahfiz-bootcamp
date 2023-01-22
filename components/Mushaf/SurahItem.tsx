@@ -4,7 +4,7 @@ import { ArabicText } from "../ArabicText";
 import { Surah } from "./types";
 import SurahNumberFrame from "../../assets/icons/SurahNumberFrame";
 import { LPMQText } from "../LPMQText";
-import { RootStackScreenProps, RootTabScreenProps } from "../../types";
+import { RootTabScreenProps } from "../../types";
 
 const SurahItem = ({
   surah,
@@ -18,7 +18,9 @@ const SurahItem = ({
     <TouchableOpacity
       style={styles.card}
       onPress={() => {
-        navigation.navigate("Surah");
+        navigation.navigate("Surah", {
+          surahNumber: surah.number,
+        });
       }}
     >
       <View
