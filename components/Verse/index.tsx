@@ -15,7 +15,7 @@ const VerseItem = ({
       style={styles.container}
       {...(verse.preBismillah && {
         lightColor: "#f4f4f4",
-        darkColor: "#1f2937",
+        darkColor: "#18181b",
       })}
     >
       <View
@@ -56,7 +56,7 @@ const VerseItem = ({
           style={{ flexGrow: 1 }}
           {...(verse.preBismillah && {
             lightColor: "#f4f4f4",
-            darkColor: "#1f2937",
+            darkColor: "#18181b",
           })}
         >
           <ArabicText
