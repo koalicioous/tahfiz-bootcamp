@@ -2,7 +2,7 @@ import { View, Text } from "../components/Themed";
 import { useEffect } from "react";
 import useGetSurahContent from "../hooks/queries/useGetSurahContent";
 import { RootStackScreenProps } from "../types";
-import { StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import SurahContentWrapper from "../components/Surah/SurahContentWrapper";
 
 export default function Surah({
@@ -20,8 +20,20 @@ export default function Surah({
 
   if (loadingContent) {
     return (
-      <View>
-        <Text>Loading...</Text>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          source={require("../assets/images/loading.gif")}
+          style={{
+            width: 24,
+            height: 24,
+          }}
+        />
       </View>
     );
   }
